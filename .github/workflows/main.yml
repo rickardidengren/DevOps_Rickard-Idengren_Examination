@@ -2,9 +2,9 @@ name: CICD
 
 on:
   push:
-    branches: [ "main", "feature/pipline-G" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "feature/pipline-G" ]
+    branches: [ "main" ]
 permissions:
   id-token: write
   pages: write
@@ -26,6 +26,12 @@ jobs:
           
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Run generate.py
+        run: python generate.py
+
+      - name: Run csvtojson.py
+        run: python csvtojson.py
         
       - name: Run tests
         run: 
@@ -34,11 +40,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!      
 
-        
-      # lägg till create csv file (glöm inte pip install)
-      # lägg till Create JSON file
-      # Köra enhetstester     
-      #python .\calculateTests.py 
       - name: Copy to dist
         run: |
           mkdir dist
