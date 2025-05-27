@@ -1,10 +1,10 @@
 import csv
 import json
 
-csvFile = 'Profiles1.csv'
+csvFile = 'profiles1.csv'
 jsonFile = 'data.json'
 
-with open('Profiles1.csv', mode='r', encoding='utf-8') as csv_file:
+with open('profiles1.csv', mode='r', encoding='utf-8') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     data = list(csv_reader)
 
